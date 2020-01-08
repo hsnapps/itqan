@@ -5,28 +5,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ __('app.app_name') }}</title>
 
-    <link href="{{ url('css/bootstrap.3.3.7.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url('css/bootstrap-rtl.3.3.4.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url('css/font-awesome.4.7.0.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ mix('css/all-styles.css') }}">
     @stack('styles')
 </head>
 
 <body>
-    @include('partials.nav')
-
-    <div class="container">
+    @include('partials.banner')
+    
+    <div class="container" id="#wrapper">
+        @include('partials.nav')
+        @include('partials.flashes')
         @yield('content')
     </div>
 
     @include('partials.footer')
 
-    <script src="{{ url('js/jquery-2.2.4.min.js') }}" type="text/javascript"></script>
-    <script src="{{ url('js/bootstrap.3.3.7.js') }}" type="text/javascript"></script>
-    <script src="{{ url('js/app.js') }}" type="text/javascript"></script>
+    <script src="{{ mix('js/all-scripts.js') }}" type="text/javascript"></script>
     @stack('scripts')
 </body>
 

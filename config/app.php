@@ -177,6 +177,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Multimedia extracting lib
+        // https://github.com/Owen-oj/laravel-getid3
+        Owenoj\LaravelGetId3\GetId3ServiceProvider::class,
     ],
 
     /*

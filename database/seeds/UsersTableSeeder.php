@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'Hassan Baabdullah',
             'email' => 'adx272@rsadf.mil',
             'password' => bcrypt('1234'),
+            'is_admin' => true
         ]);
     }
 }

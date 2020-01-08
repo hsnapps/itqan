@@ -11,5 +11,19 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.styles([
+   'resources/assets/css/bootstrap.3.3.7.css',
+   'resources/assets/css/bootstrap-rtl.3.3.4.css',
+   'resources/assets/css/font-awesome.4.7.0.css',
+   'resources/assets/css/style.css'
+], 'public/css/all-styles.css')
+.scripts([
+   'resources/assets/js/jquery-2.2.4.min.js',
+   'resources/assets/js/bootstrap.3.3.7.js',
+   'resources/assets/js/app.js'
+], 'public/js/all-scripts.js')
+.version();
+
+mix.copyDirectory('resources/assets/images', 'public/images')
+   .copyDirectory('resources/assets/fonts', 'public/fonts')
+   .copy('resources/assets/css/admin.css', 'public/css/admin.css');

@@ -6,9 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "davejamesmiller/laravel-breadcrumbs": "4.x",
+        "doctrine/dbal": "^2.10",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "owen-oj/laravel-getid3": "v0.1-alpha"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -19,6 +22,9 @@
         "symfony/thanks": "^1.0"
     },
     "autoload": {
+        "files": [
+            "app/Code/helpers.php"
+        ],
         "classmap": [
             "database/seeds",
             "database/factories"

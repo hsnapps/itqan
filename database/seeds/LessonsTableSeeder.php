@@ -12,39 +12,13 @@ class LessonsTableSeeder extends Seeder
     public function run()
     {
         App\Lesson::create([
-            'title' => 'الدرس الأول',
-            'header' => 'عنوان الدرس الأول',
-            'description' => 'محتوى الدرس الأول',
-        ]);
-
-        App\Lesson::create([
-            'title' => 'الدرس الثاني',
-            'header' => 'عنوان الدرس الثاني',
-            'description' => 'محتوى الدرس الثاني',
-        ]);
-
-        App\Lesson::create([
-            'title' => 'الدرس الثالث',
-            'header' => 'عنوان الدرس الثالث',
-            'description' => 'محتوى الدرس الثالث',
-        ]);
-
-        App\Lesson::create([
-            'title' => 'الدرس الرابع',
-            'header' => 'عنوان الدرس الرابع',
-            'description' => 'محتوى الدرس الرابع',
-        ]);
-
-        App\Lesson::create([
-            'title' => 'الدرس الخامس',
-            'header' => 'عنوان الدرس الخامس',
-            'description' => 'محتوى الدرس الخامس',
-        ]);
-
-        App\Lesson::create([
-            'title' => 'الدرس السادس',
-            'header' => 'عنوان الدرس السادس',
-            'description' => 'محتوى الدرس السادس',
+            'title' => 'مدخل إلى نظام Moodle',
+            'header' => 'نظام التعليم الإلكتروني,دليلك لفهم',
+            'description' => 'نظام التعليم الإلكتروني Moodle ومدى تأثيره على منظمتك التعليمية',
+            'image' => 'lesson_0.png',
+            'instructor_id' => 1,
+            'category_id' => 1,
+            'level_id' => 1,
         ]);
     }
 }
