@@ -8,6 +8,7 @@
         font-family: itqan-kufi;
         font-size: 1.10em;
     }
+    .btn-default { margin-left: 5px; }
     input[type="text"] { padding: 15px; font-size: 1.25em; height: 45px; }
     label { font-size: 1.25em; }
 </style>
@@ -24,8 +25,8 @@
     @include('admin.users._form')
     <br />
     @include('admin.partials.submit', ['can' => auth()->user()->canUsers(), 'route' => route('admin.users')])
-    <button type="button" class="btn btn-default text-center" data-toggle="modal" data-target="#change_password">{{ __('admin.user.change_password') }}</button>
     <button type="button" class="btn btn-danger text-center left">{{ __('admin.user.delete_user') }}</button>
+    <button type="button" class="btn btn-default text-center left" data-toggle="modal" data-target="#change_password_{{ $user->id }}">{{ __('admin.user.change_password') }}</button>
 </form>
 
 @include('admin.users.change-password', ['user' => $user])

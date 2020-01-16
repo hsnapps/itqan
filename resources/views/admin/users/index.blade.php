@@ -5,6 +5,10 @@
         .breadcrumb>li+li:last-of-type:before {content: none;}
         td {font-size: 1.25em;}
         th {font-family: itqan-kufi; font-size: 1.25em;}
+
+        .btn {
+            font-family: itqan-kufi;
+        }
     </style>
 @endpush
 

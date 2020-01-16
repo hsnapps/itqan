@@ -109,7 +109,7 @@ return [
         'password' => 'كلمة المرور',
         'password_confirmation' => 'تأكيد كلمة المرور',
         'deleted' => 'تم حذف المستخدم بنجاح',
-        'delete' => 'هل تريد حذف المستخدم :name',
+        'delete' => 'هل تريد حذف المستخدم (:name)',
         'delete_user' => 'حذف المستخدم',
         'profile' => 'بياناتي',
     ],

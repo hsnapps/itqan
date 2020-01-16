@@ -14,6 +14,7 @@
     }
     input[type="text"] { padding: 15px; font-size: 1.25em; height: 45px; }
     label { font-size: 1.25em; }
+    .text-center.btn-default { float: left; }
 </style>
 @endpush
 
@@ -27,7 +28,7 @@
 
     @include('admin.users._form', ['user' => $user])
     <br />
-    <button type="submit" class="btn btn-success text-center">{{ __('admin.save') }}</button>
+    @include('admin.partials.submit', ['can' => true, 'route' => route('dashboard')])
     <button type="button" class="btn btn-default text-center" data-toggle="modal" data-target="#change_password_{{ $user->id }}">{{ __('admin.user.change_password') }}</button>
 </form>
 
