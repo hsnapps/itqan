@@ -43,7 +43,7 @@
             @include('admin.lessons._form', ['lesson' => $lesson])
 
             <br />
-            <button type="submit" {{ auth()->user()->canCourses() ? '' : 'disabled' }} class="btn btn-success text-center">{{ __('admin.save') }}</button>
+            @include('admin.partials.submit', ['can' => auth()->user()->canLessons(), 'route' => route('admin.courses.edit', ['course' => $lesson->course, 'tab' => 'lessons'])])
             <button id="lesson-delete" class="btn btn-danger" style="float: left;" type="button">{{ __('admin.lesson.delete') }}</a>
         </form>
     </div>

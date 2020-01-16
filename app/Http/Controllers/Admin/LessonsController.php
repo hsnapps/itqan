@@ -76,7 +76,7 @@ class LessonsController extends Controller
             $placeHolder = 'place-holder.png';
             $fileName = str_random(16).'.png';
             $copy = Storage::disk('app-images')->copy($placeHolder, 'lessons/'.$fileName);
-            $lesson->video = $fileName;
+            $lesson->image = $fileName;
         }
 
         if (isset($request->video)) {

@@ -23,7 +23,7 @@
 
     @include('admin.users._form')
     <br />
-    <button type="submit" class="btn btn-success text-center">{{ __('admin.save') }}</button>
+    @include('admin.partials.submit', ['can' => auth()->user()->canUsers(), 'route' => route('admin.users')])
     <button type="button" class="btn btn-default text-center" data-toggle="modal" data-target="#change_password">{{ __('admin.user.change_password') }}</button>
     <button type="button" class="btn btn-danger text-center left">{{ __('admin.user.delete_user') }}</button>
 </form>

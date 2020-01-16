@@ -1,0 +1,2 @@
+<button type="submit" {{ $can ? '' : 'disabled' }} class="btn btn-success text-center">{{ __('admin.save') }}</button>
+<a class="btn btn-link text-muted" href="{{ $route }}">{{ __('admin.cancel') }}</a>

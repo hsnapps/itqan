@@ -28,7 +28,7 @@
     @include('admin.users._form', ['user' => $user])
     <br />
     <button type="submit" class="btn btn-success text-center">{{ __('admin.save') }}</button>
-    <button type="button" class="btn btn-default text-center" data-toggle="modal" data-target="#change_password">{{ __('admin.user.change_password') }}</button>
+    <button type="button" class="btn btn-default text-center" data-toggle="modal" data-target="#change_password_{{ $user->id }}">{{ __('admin.user.change_password') }}</button>
 </form>
 
 @include('admin.users.change-password', ['user' => $user])

@@ -117,7 +117,8 @@ return [
     'table' => [
         'categories' => 'الفئات',
         'instructors' => 'المعلمون',
-        'levels' => 'المستويات',
+        'levels' => 'مستويات الدروس',
+        'mission_levels' => 'المستويات المهارية',
     ],
 
     'caption' => 'التسمية',

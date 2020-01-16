@@ -42,7 +42,7 @@
                     <td scope="row">{{ __('admin.new') }}</td>
                     <td>
                         <form action="{{ route('admin.tables.add') }}" method="post">
-                            <input type="text" name="name" id="name">
+                            <input type="text" name="name" id="name_{{ $key }}" style="width: 400px !important;">
                     
                             <div class="btn-group btn-group-sm" role="group" aria-label="commands">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
@@ -58,11 +58,11 @@
                     <td scope="row">{{ hindi($loop->index + 1) }}</td>
                     <td>
                         <form action="{{ route('admin.tables.update') }}" method="post">
-                            <input type="text" name="name" id="name" value="{{ $item->name }}">
+                            <input type="text" name="name" id="name_{{ sprintf('%s_%s', $key, $item->id) }}" value="{{ $item->name }}" style="width: 400px !important;">
                     
                             <div class="btn-group btn-group-sm" role="group" aria-label="commands">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                <button type="button" class="btn btn-danger" data-name="{{ $item->name }}" data-id="{{ $item->id }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-danger" data-name="{{ $item->name }}" data-table="{{ $key }}" data-id="{{ $item->id }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                             </div>
 
                             {{ csrf_field() }}
@@ -70,7 +70,7 @@
                             <input type="hidden" name="id" value="{{ $item->id }}">
                         </form>
 
-                        <form id="delete-rec-{{ $item->id }}" action="{{ route('admin.tables.delete') }}" method="post">
+                        <form id="delete_rec_{{ sprintf('%s_%s', $key, $item->id) }}" action="{{ route('admin.tables.delete') }}" method="post">
                             {{ csrf_field() }}
                             <input type="hidden" name="table" value="{{ $key }}">
                             <input type="hidden" name="id" value="{{ $item->id }}">
@@ -100,10 +100,11 @@
     $('.btn-danger').click(function(){
         var value = $(this).data('name');
         var id = $(this).data('id');
+        var table = $(this).data('table');
         var message = "{!! __('admin.delete-confirm') !!}".replace('***', value);
         var conf = confirm(message);
         if (conf) {
-            $('#delete-rec-' + id).submit();
+            $('#delete_rec_' + table + '_' + id).submit();
         }
     });
 </script>

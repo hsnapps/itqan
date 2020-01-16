@@ -21,7 +21,8 @@
     {{ csrf_field() }}
     @include('admin.users._form')
     <br />
-    <button type="submit" class="btn btn-success text-center">{{ __('admin.save') }}</button>
+
+    @include('admin.partials.submit', ['can' => auth()->user()->canUsers(), 'route' => route('admin.users')])
 </form>
 @endsection
 

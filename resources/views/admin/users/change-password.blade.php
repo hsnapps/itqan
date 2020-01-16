@@ -10,13 +10,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="password">{{ __('admin.user.password') }}</label>
-                        <input type="password" class="form-control" name="password" id="password" placeholder="{{ __('admin.user.password') }}">
+                        <label for="password_{{ $user->id }}">{{ __('admin.user.password') }}</label>
+                        <input type="password" class="form-control" name="password" id="password_{{ $user->id }}" placeholder="{{ __('admin.user.password') }}">
                     </div>
                     
                     <div class="form-group">
-                        <label for="password_confirmation">{{ __('admin.user.password') }}</label>
-                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="{{ __('admin.user.password_confirmation') }}">
+                        <label for="password_confirmation_{{ $user->id }}">{{ __('admin.user.password') }}</label>
+                        <input type="password" class="form-control" name="password_confirmation" id="password_confirmation_{{ $user->id }}" placeholder="{{ __('admin.user.password_confirmation') }}">
                     </div>
                 </div>
                 <div class="modal-footer">

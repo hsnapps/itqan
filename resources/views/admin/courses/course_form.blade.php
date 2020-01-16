@@ -22,5 +22,5 @@
     </div>
 
     <br />
-    <button type="submit" {{ auth()->user()->canCourses() ? '' : 'disabled' }} class="btn btn-success text-center">{{ __('admin.save') }}</button>
+    @include('admin.partials.submit', ['can' => auth()->user()->canCourses(), 'route' => route('admin.courses')])
 </form>
