@@ -8,7 +8,7 @@
 
     <title>{{ __('app.app_name') }}</title>
 
-    <link rel="stylesheet" href="{{ mix('css/all-styles.css') }}">
+    <link rel="stylesheet" href="{{ url('css/all-styles.css') }}">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 
     @include('partials.footer')
 
-    <script src="{{ mix('js/all-scripts.js') }}" type="text/javascript"></script>
+    <script src="{{ url('js/all-scripts.js') }}" type="text/javascript"></script>
 </body>
 
 </html>
