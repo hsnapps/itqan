@@ -18,7 +18,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <h3 id="mabrook" style="float: right; display: none;"><span class="label label-success">مبروك</span></h3>
+                <h3 style="float: right;"><span id="result-label" class="label label-success"></span></h3>
                 <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('app.close') }}</button>
             </div>
         </div>

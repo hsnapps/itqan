@@ -14,6 +14,7 @@ class Course extends Model
         'description',
         'image',
         'category_id',
+        'mission_level_id',
     ];
 
     public function category()
@@ -24,5 +25,10 @@ class Course extends Model
     public function lessons()
     {
         return $this->hasMany(Lesson::class);
+    }
+
+    public function missionLevel()
+    {
+        return $this->belongsTo(MissionLevel::class);
     }
 }

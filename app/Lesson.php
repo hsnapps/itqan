@@ -37,11 +37,6 @@ class Lesson extends Model
         return $this->belongsTo(Level::class);
     }
 
-    public function missionLevel()
-    {
-        return $this->belongsTo(MissionLevel::class);
-    }
-
     public function files()
     {
         return $this->hasMany(LessonFile::class);

@@ -28,7 +28,8 @@ Route::group(['middleware' => ['auth', 'check-roles']], function () {
         Route::view('/', 'admin.index')->name('dashboard');
         
         Route::group(['prefix' => 'courses'], function () {
-            Route::view('/', 'admin.courses.index', ['courses' => App\Course::all()])->name('admin.courses');
+            Route::view('/list/{filter?}', 'admin.courses.index', ['courses' => App\Course::paginate(6)])->name('admin.courses');
+            // Route::get('/{filter?}', 'Admin\CoursesController@index')->name('admin.courses');
             Route::view('/new', 'admin.courses.new')->name('admin.courses.new');
             Route::get('/{course}', 'Admin\CoursesController@viewCourse')->name('admin.courses.edit');
             Route::get('/lessons/{course}', 'Admin\CoursesController@courseLessons')->name('admin.courses.lessons');

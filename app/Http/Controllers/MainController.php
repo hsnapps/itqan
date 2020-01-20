@@ -82,7 +82,7 @@ class MainController extends Controller
     public function viewMissionLevel(MissionLevel $missionLevel)
     {
         return view('mission-level', [
-            'lev' => $missionLevel,
+            'lev' => $missionLevel->id,
             'title' => $missionLevel->name,
         ]);
     }

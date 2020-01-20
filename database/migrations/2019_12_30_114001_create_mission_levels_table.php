@@ -33,5 +33,12 @@ class CreateMissionLevelsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('mission_levels');
+        
+        Schema::disableForeignKeyConstraints();
+        Schema::table('lessons', function (Blueprint $table) {
+            $table->dropColumn('mission_level_id');
+            $table->dropForeign(['mission_level_id']);
+        });
+        Schema::enableForeignKeyConstraints();
     }
 }

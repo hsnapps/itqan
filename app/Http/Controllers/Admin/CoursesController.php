@@ -9,6 +9,18 @@ use App\Course;
 
 class CoursesController extends Controller
 {
+    // public function index($filter = null)
+    // {
+    //     if (isset($filter)) {
+    //         dd($filter);
+    //     }
+
+    //     $courses = Course::paginate(6);
+    //     return view('admin.courses.index', [
+    //         'courses' => $courses
+    //     ]);
+    // }
+
     public function viewCourse(Course $course)
     {
         return view('admin.courses.edit', [

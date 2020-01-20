@@ -10,8 +10,8 @@ class MissionLevel extends Model
         'name',
     ];
 
-    public function lessons()
+    public function courses()
     {
-        return $this->hasMany(Lesson::class);
+        return $this->hasMany(Course::class);
     }
 }

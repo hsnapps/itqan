@@ -9,8 +9,8 @@
 
     <title>{{ __('app.app_name') }}</title>
 
-    <link rel="stylesheet" href="{{ mix('css/all-styles.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ url('css/all-styles.css') }}">
+    <link rel="stylesheet" href="{{ url('css/admin.css') }}">
     @stack('styles')
     <style>
         .badge{ font-family: Arial, Helvetica, sans-serif; font-size: 1.0em; }
@@ -30,7 +30,7 @@
 
     @include('partials.footer')
 
-    <script src="{{ mix('js/all-scripts.js') }}" type="text/javascript"></script>
+    <script src="{{ url('js/all-scripts.js') }}" type="text/javascript"></script>
     @stack('scripts')
 </body>
 

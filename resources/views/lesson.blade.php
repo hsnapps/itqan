@@ -2,7 +2,7 @@
 
 @push('styles')
 <style>
-    body{ height: 1000px; }
+    body{ height: 1200px; }
 </style>
 @endpush
 
@@ -117,6 +117,7 @@ $('#finish').click(function () {
                 <div class="progress-bar progress-bar-success progress-bar-striped" style="width: _success_%"></div>
                 <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: _danger_%"></div>
             `;
+            var correctCount = 0;
             var correct = 'fa-check text-success';
             var incorrect = 'fa-times text-danger';
             var row = `
@@ -134,6 +135,9 @@ $('#finish').click(function () {
             var items = [];
             for (let key = 0; key < data.questions.length; key++) {
                 var tick = data.answers[key] === data.corrects[key] ? correct : incorrect;
+                if (data.answers[key] === data.corrects[key]) {
+                    correctCount++;
+                }
                 var item = row
                     .replace('_i_', key + 1)
                     .replace('_answer_', data.answers[key])
@@ -141,7 +145,12 @@ $('#finish').click(function () {
                     .replace('_tick_', tick);
                 $("#answers tbody").append(item);
             }
-            $('#mabrook').toggle(data.pass);
+
+            if (data.pass) {
+                $('#result-label').removeClass('label-danger').addClass('label-success').text(correctCount+' من '+data.questions.length);
+            } else {
+                $('#result-label').removeClass('label-success').addClass('label-danger').text(correctCount+' من '+data.questions.length);
+            }
             $('#quiz_result').modal('show').on('hidden.bs.modal', function (e) { location.reload(); });
         },
         complete: function () {
