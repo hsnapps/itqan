@@ -49,18 +49,19 @@ CREATE TABLE IF NOT EXISTS `courses` (
   KEY `courses_mission_level_id_foreign` (`mission_level_id`),
   CONSTRAINT `courses_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
   CONSTRAINT `courses_mission_level_id_foreign` FOREIGN KEY (`mission_level_id`) REFERENCES `mission_levels` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table itqan.courses: ~2 rows (approximately)
+-- Dumping data for table itqan.courses: ~8 rows (approximately)
 /*!40000 ALTER TABLE `courses` DISABLE KEYS */;
 INSERT INTO `courses` (`id`, `name`, `description`, `image`, `category_id`, `mission_level_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'نظام التعليم الإلكتروني مودل', 'دورة كاملة على طريقة استخدام نظام التعليم مودل', '2KFgAky7ms6o0EjG.png', 1, 1, '2019-12-29 07:44:37', '2020-01-16 11:42:55', NULL),
 	(3, 'تعليم مبادئ وورد', 'تعليم برنامج الكتابة مايكروسوفت وورد في 35 دقيقة', 'D45LrLYWAvmxyIk.jpeg', 1, 1, '2020-01-05 09:15:01', '2020-01-07 09:23:14', '2020-01-07 09:23:14'),
-	(4, 'الاتصال', 'مهارات الاتصال السلكي واللاسلكي وأمن الاتصالات', NULL, 2, 2, '2020-01-20 10:14:01', '2020-01-20 10:17:02', NULL),
-	(5, 'الملاحة البرية', 'التدريب على علم الطبوغرافيا والخرائط', NULL, 2, 2, '2020-01-20 10:14:01', '2020-01-20 10:17:02', NULL),
-	(6, 'الوقاية من أسلحة التدمير الشامل', 'معلومات عامة عن أسلحة التدمير الشامل', NULL, 2, 2, '2020-01-20 10:14:01', '2020-01-20 10:17:02', NULL),
-	(7, 'الأسلحة الفردية (الصغيرة)', 'مهارات استخدام الأسلحة الفردية والقنابل اليدوية', NULL, 2, 2, '2020-01-20 10:14:01', '2020-01-20 10:17:02', NULL),
-	(8, 'الإسعافات الأولية', 'مهارات الإسعافات الأولية والإنقاذ', NULL, 2, 2, '2020-01-20 10:14:01', '2020-01-20 10:17:02', NULL);
+	(4, 'الاتصال', 'مهارات الاتصال السلكي واللاسلكي وأمن الاتصالات', 'WAj0i64EE0uimi7E.png', 2, 2, '2020-01-20 10:14:01', '2020-01-21 12:00:37', NULL),
+	(5, 'الملاحة البرية', 'التدريب على علم الطبوغرافيا والخرائط', 'YLg03CmLkUGd6XGp.png', 2, 2, '2020-01-20 10:14:01', '2020-01-21 12:03:03', NULL),
+	(6, 'الوقاية من أسلحة التدمير الشامل', 'معلومات عامة عن أسلحة التدمير الشامل', 'z7GyubIlmeqUdqND.png', 2, 2, '2020-01-20 10:14:01', '2020-01-21 12:05:01', NULL),
+	(7, 'الأسلحة الفردية (الصغيرة)', 'مهارات استخدام الأسلحة الفردية والقنابل اليدوية', 'jU57PIKPdOPxjHAb.png', 2, 2, '2020-01-20 10:14:01', '2020-01-21 12:07:18', NULL),
+	(8, 'الإسعافات الأولية', 'مهارات الإسعافات الأولية والإنقاذ', 'ludEqVKUY6PBqBrX.png', 2, 2, '2020-01-20 10:14:01', '2020-01-21 12:27:42', NULL),
+	(9, 'قوانين وتقاليد الحرب', 'التدريب على مهارة قوانين وتقاليد الحرب', NULL, 2, 2, '2020-01-21 07:59:30', '2020-01-21 07:59:30', NULL);
 /*!40000 ALTER TABLE `courses` ENABLE KEYS */;
 
 -- Dumping structure for table itqan.instructors
@@ -72,13 +73,15 @@ CREATE TABLE IF NOT EXISTS `instructors` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table itqan.instructors: ~1 rows (approximately)
+-- Dumping data for table itqan.instructors: ~4 rows (approximately)
 /*!40000 ALTER TABLE `instructors` DISABLE KEYS */;
 INSERT INTO `instructors` (`id`, `name`, `info`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 'أ. خالد القحطاني', '', '2019-12-29 07:47:24', '2019-12-29 07:47:25', NULL),
-	(2, 'عاصم هزازي', NULL, NULL, NULL, NULL);
+	(1, 'غير محدد', '', '2019-12-29 07:47:24', '2019-12-29 07:47:25', NULL),
+	(2, 'أ. خالد القحطاني', NULL, '2020-01-21 11:22:50', '2020-01-21 11:22:51', NULL),
+	(3, 'عاصم هزازي', NULL, '2020-01-21 11:22:47', '2020-01-21 11:22:48', NULL),
+	(4, 'العقيد/ محمد بن مسفر العتيبي', NULL, '2020-01-21 11:22:32', '2020-01-21 11:22:33', NULL);
 /*!40000 ALTER TABLE `instructors` ENABLE KEYS */;
 
 -- Dumping structure for table itqan.lessons
@@ -100,19 +103,62 @@ CREATE TABLE IF NOT EXISTS `lessons` (
   PRIMARY KEY (`id`),
   KEY `lessons_instructor_id_foreign` (`instructor_id`),
   KEY `lessons_category_id_foreign` (`category_id`),
-  KEY `lessons_level_id_foreign` (`level_id`),
   KEY `lessons_course_id_foreign` (`course_id`),
+  KEY `lessons_level_id_foreign` (`level_id`),
   CONSTRAINT `lessons_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`),
   CONSTRAINT `lessons_course_id_foreign` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`),
   CONSTRAINT `lessons_instructor_id_foreign` FOREIGN KEY (`instructor_id`) REFERENCES `instructors` (`id`),
   CONSTRAINT `lessons_level_id_foreign` FOREIGN KEY (`level_id`) REFERENCES `levels` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table itqan.lessons: ~2 rows (approximately)
+-- Dumping data for table itqan.lessons: ~44 rows (approximately)
 /*!40000 ALTER TABLE `lessons` DISABLE KEYS */;
 INSERT INTO `lessons` (`id`, `course_id`, `lesson_index`, `title`, `header`, `description`, `image`, `video`, `category_id`, `level_id`, `instructor_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-	(1, 1, 1, 'مدخل إلى نظام Moodle', 'نظام التعليم الإلكتروني Moodle ومدى تأثيره على منظمتك التعليمية', '<p>تقديم:</p>\r\n\r\n<p>&lrm;نظام إدارة التعلم Moodle هو أحد الأنظمة المجانية مفتوحة المصدر التي يمكن التطوير عليها، وتعرف أيضا أنظمة إدارة التعلم ببيئة التعلم الافتراضية حيث تمكن المهتمين بمجال التربية والتعليم بإنشاء المواد التعليمية في شكل مقررات تعليمية يمكن الوصول إليها من قبل الفئة المستهدفة وهم المتعلمون. &lrm;<br />\r\n<br />\r\nفي نهاية هذا الفيديو ستكون قادر على : &lrm;<br />\r\n-- التعرف على ما هوي نظام Moodle<br />\r\n&lrm;-- خصائص ومميزات نظام Moodle</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>من يستفيد من هذه الدورة:</p>\r\n\r\n<ul>\r\n	<li>\r\n	<p>المدراء و المسؤولين</p>\r\n	</li>\r\n	<li>\r\n	<p>المعلمون و الطلاب</p>\r\n	</li>\r\n	<li>\r\n	<p>المهتمون بالتقنية</p>\r\n	</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>مدة الفيديو: 25 دقيقة</p>', 'lesson_0.png', 'lesson-1.mp4', 1, 1, 1, '2019-12-29 07:44:38', '2020-01-07 09:09:27', NULL),
-	(8, 1, 2, 'إنشاء الفئات والتصنيفات', 'إضافة التصنيفات أو الفئات الرئيسية والفرعية', '<p>المؤسسات التعليمية تحتوي على عدة أقسام علمية بداخلها ، ونظم إدارة التعلم تحترم هذه التصنيفات وتتيح للمستخدمين الموكل إليهم تقسيم المؤسسة إلى عدة أقسام بإضافة التصنيفات أو الفئات.</p>\r\n\r\n<p>في نهاية هذا الفيديو ستكون قادر على :</p>\r\n\r\n<ul>\r\n	<li>إضافة التصنيفات أو الفئات.</li>\r\n	<li>إضافة التصنيفات الفرعية.</li>\r\n	<li>التعرف على أدوات التصنيفات.</li>\r\n</ul>', 'KY6tKPK2grJcpnyv.png', 'fs2XWzvSuLd0aOsO.mp4', 1, 1, 1, '2020-01-05 13:09:38', '2020-01-07 09:05:40', '2020-01-07 09:05:40');
+	(1, 1, 1, 'مدخل إلى نظام Moodle', 'نظام التعليم الإلكتروني Moodle ومدى تأثيره على منظمتك التعليمية', '<p>تقديم:</p>\r\n\r\n<p>&lrm;نظام إدارة التعلم Moodle هو أحد الأنظمة المجانية مفتوحة المصدر التي يمكن التطوير عليها، وتعرف أيضا أنظمة إدارة التعلم ببيئة التعلم الافتراضية حيث تمكن المهتمين بمجال التربية والتعليم بإنشاء المواد التعليمية في شكل مقررات تعليمية يمكن الوصول إليها من قبل الفئة المستهدفة وهم المتعلمون. &lrm;<br />\r\n<br />\r\nفي نهاية هذا الفيديو ستكون قادر على : &lrm;<br />\r\n-- التعرف على ما هوي نظام Moodle<br />\r\n&lrm;-- خصائص ومميزات نظام Moodle</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>من يستفيد من هذه الدورة:</p>\r\n\r\n<ul>\r\n	<li>\r\n	<p>المدراء و المسؤولين</p>\r\n	</li>\r\n	<li>\r\n	<p>المعلمون و الطلاب</p>\r\n	</li>\r\n	<li>\r\n	<p>المهتمون بالتقنية</p>\r\n	</li>\r\n</ul>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>مدة الفيديو: 25 دقيقة</p>', 'lesson_0.png', 'lesson-1.mp4', 1, 1, 2, '2019-12-29 07:44:38', '2020-01-07 09:09:27', NULL),
+	(8, 1, 2, 'إنشاء الفئات والتصنيفات', 'إضافة التصنيفات أو الفئات الرئيسية والفرعية', '<p>المؤسسات التعليمية تحتوي على عدة أقسام علمية بداخلها ، ونظم إدارة التعلم تحترم هذه التصنيفات وتتيح للمستخدمين الموكل إليهم تقسيم المؤسسة إلى عدة أقسام بإضافة التصنيفات أو الفئات.</p>\r\n\r\n<p>في نهاية هذا الفيديو ستكون قادر على :</p>\r\n\r\n<ul>\r\n	<li>إضافة التصنيفات أو الفئات.</li>\r\n	<li>إضافة التصنيفات الفرعية.</li>\r\n	<li>التعرف على أدوات التصنيفات.</li>\r\n</ul>', 'KY6tKPK2grJcpnyv.png', 'fs2XWzvSuLd0aOsO.mp4', 1, 1, 2, '2020-01-05 13:09:38', '2020-01-07 09:05:40', '2020-01-07 09:05:40'),
+	(9, 4, 1, 'الفصل الأول', 'تعريف ومفهوم الاتصالات', '<p>تعريف ومفهوم الاتصالات</p>', NULL, NULL, 2, 1, 1, '2020-01-21 08:29:11', '2020-01-21 11:52:44', NULL),
+	(12, 4, 2, 'الفصل الثاني', 'الاتصال اللاسلكي', '<p>الاتصال اللاسلكي</p>', NULL, NULL, 2, 1, 1, '2020-01-21 08:41:28', '2020-01-21 08:41:28', NULL),
+	(17, 4, 3, 'الفصل الثالث', 'الأجهزة السلكية في قوت الدفاع الجوي', '<p>الأجهزة السلكية&nbsp;في قوت الدفاع الجوي</p>', NULL, NULL, 2, 1, 1, '2020-01-21 09:11:42', '2020-01-21 09:20:30', NULL),
+	(18, 4, 4, 'الفصل الرابع', 'الاتصال اللاسلكي', '<p>الاتصال اللاسلكي</p>', NULL, NULL, 2, 1, 1, '2020-01-21 09:18:28', '2020-01-21 09:18:29', NULL),
+	(19, 4, 5, 'الفصل الخامس', 'الأجهزة اللاسلكية في قوت الدفاع الجوي', '<p>الأجهزة اللاسلكية في قوت الدفاع الجوي</p>', NULL, NULL, 2, 1, 1, '2020-01-21 09:19:00', '2020-01-21 09:19:00', NULL),
+	(20, 4, 6, 'الفصل السادس', 'أمن الاتصالات', '<p>أمن الاتصالات</p>', NULL, NULL, 2, 1, 1, '2020-01-21 09:21:05', '2020-01-21 09:21:05', NULL),
+	(21, 4, 7, 'الفصل السابع', 'قواعد وأصول المخابرة', '<p>قواعد وأصول المخابرة</p>', NULL, NULL, 2, 1, 1, '2020-01-21 09:21:38', '2020-01-21 09:21:38', NULL),
+	(22, 5, 1, 'الفصل الأول', 'علم الطبوغرافيا', 'علم الطبوغرافيا', NULL, NULL, 2, 1, 1, '2020-01-21 09:33:58', '2020-01-21 09:33:58', NULL),
+	(23, 5, 2, 'الفصل الثاني', 'الخارطة', 'الخارطة', NULL, NULL, 2, 1, 1, '2020-01-21 09:34:21', '2020-01-21 09:34:21', NULL),
+	(24, 5, 3, 'الفصل الثالث', 'طرق تمثيل الهيائات الطبوغرافية على الخرائط', '<p>طرق تمثيل الهيائات الطبوغرافية على الخرائط</p>', NULL, NULL, 2, 1, 1, '2020-01-21 09:35:11', '2020-01-21 09:35:11', NULL),
+	(25, 5, 4, 'الفصل الرابع', 'الاصطلاحات والرموز الطبوغرافية', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 09:35:37', '2020-01-21 09:35:37', NULL),
+	(26, 5, 5, 'الفصل الخامس', 'هامش الخارطة', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 09:36:02', '2020-01-21 09:36:02', NULL),
+	(27, 5, 6, 'الفصل السادس', 'تعيين إحداثيات الأغراض', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 09:36:36', '2020-01-21 09:36:36', NULL),
+	(28, 5, 7, 'الفصل السابع', 'مقياس الرسم', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 09:37:02', '2020-01-21 09:37:02', NULL),
+	(29, 5, 8, 'الفصل الثامن', 'قياس المسافات', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 09:39:32', '2020-01-21 09:39:32', NULL),
+	(30, 5, 9, 'الفصل التاسع', 'البوصلة', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 09:47:30', '2020-01-21 09:47:31', NULL),
+	(31, 5, 10, 'الفصل العاشر', 'توجيه الخارطة ومقارنتها مع الطبيعة', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 09:48:08', '2020-01-21 09:48:08', NULL),
+	(32, 6, 1, 'الفصل الأول', 'المقدمة', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 09:49:54', '2020-01-21 09:51:08', NULL),
+	(33, 6, 2, 'الفصل الثاني', 'السلاح النووي', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 09:50:55', '2020-01-21 09:50:55', NULL),
+	(34, 6, 3, 'الفصل الثالث', 'السلاح الكيماوي', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:08:34', '2020-01-21 11:08:34', NULL),
+	(35, 6, 4, 'الفصل الرابع', 'السلاح الجرثومي', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:09:07', '2020-01-21 11:09:07', NULL),
+	(36, 6, 5, 'الفصل الخامس', 'الوقاية الفردية', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:09:33', '2020-01-21 11:09:33', NULL),
+	(37, 7, 1, 'الفصل الأول', 'البندقية ج36 عيار 5.56 ملم', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:10:36', '2020-01-21 11:10:37', NULL),
+	(38, 7, 2, 'الفصل الثاني', 'البندقية ج3', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:10:58', '2020-01-21 11:10:58', NULL),
+	(39, 7, 3, 'الفصل الثالث', 'نصف الرشاش أم بي 5', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:11:28', '2020-01-21 11:11:28', NULL),
+	(40, 7, 4, 'الفصل الرابع', 'المسدس عيار 9 ملم (براونج)', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:12:01', '2020-01-21 11:12:01', NULL),
+	(41, 7, 5, 'الفصل الخامس', 'مسدسات جلوك الحركة الآمنة', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:12:41', '2020-01-21 11:12:41', NULL),
+	(42, 7, 6, 'الفصل السادس', 'الرشاش ام جي 3 عيار 7.62 ملم', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:13:42', '2020-01-21 11:13:42', NULL),
+	(43, 7, 7, 'الفصل السابع', 'رشاش عيار 50% من البوصة (12.7) ملم', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:15:36', '2020-01-21 11:15:36', NULL),
+	(44, 7, 8, 'الفصل الثامن', 'القنابل اليدوية', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:19:21', '2020-01-21 11:19:21', NULL),
+	(45, 7, 9, 'الفصل التاسع', 'إجراءات العمل المستديمة للرماية على الأسلحة الخفيفة', '<p>إجراءات العمل المستديمة للرماية على الأسلحة الخفيفة</p>', NULL, NULL, 2, 1, 1, '2020-01-21 11:23:55', '2020-01-21 11:23:55', NULL),
+	(46, 8, 1, 'الفصل الأول', 'مقدمة الإسعافات الأولي', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:25:44', '2020-01-21 11:25:44', NULL),
+	(47, 8, 2, 'الفصل الثاني', 'الإنعاش القلبي الرئوي', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:27:02', '2020-01-21 11:27:02', NULL),
+	(48, 8, 3, 'الفصل الثالث', 'الجروح والنزيف', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:27:17', '2020-01-21 11:27:17', NULL),
+	(49, 8, 4, 'الفصل الرابع', 'الحروق', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:27:28', '2020-01-21 11:27:28', NULL),
+	(50, 8, 5, 'الفصل الخامس', 'الكسور', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:27:44', '2020-01-21 11:27:45', NULL),
+	(51, 8, 6, 'الفصل السادس', 'الأزمات القلبية والباطنية', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:28:08', '2020-01-21 11:28:08', NULL),
+	(52, 8, 7, 'الفصل السابع', 'الصدمة', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:28:29', '2020-01-21 11:28:29', NULL),
+	(53, 8, 8, 'الفصل الثامن', 'التسمم', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:28:43', '2020-01-21 11:28:43', NULL),
+	(54, 8, 9, 'الفصل التاسع', 'لسعات الحشرات ولدغات العقارب وعضات الثعابين', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:29:12', '2020-01-21 11:29:12', NULL),
+	(55, 8, 10, 'الفصل العاشر', 'اصابات أخرى', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:29:30', '2020-01-21 11:29:31', NULL),
+	(56, 9, 1, 'الفصل الأول', 'القانون الدولي للحرب', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:30:00', '2020-01-21 11:30:00', NULL),
+	(57, 9, 2, 'الفصل الثاني', 'القانون الدولي الإنساني', NULL, NULL, NULL, 2, 1, 1, '2020-01-21 11:30:14', '2020-01-21 11:30:14', NULL);
 /*!40000 ALTER TABLE `lessons` ENABLE KEYS */;
 
 -- Dumping structure for table itqan.lesson_files
@@ -163,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table itqan.migrations: ~19 rows (approximately)
+-- Dumping data for table itqan.migrations: ~21 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -274,9 +320,9 @@ CREATE TABLE IF NOT EXISTS `roles` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table itqan.roles: ~5 rows (approximately)
+-- Dumping data for table itqan.roles: ~8 rows (approximately)
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(1, 'admin', '2020-01-01 10:55:21', '2020-01-01 10:55:21'),
@@ -284,7 +330,9 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 	(3, 'lessons', '2020-01-01 10:55:21', '2020-01-01 10:55:21'),
 	(4, 'multimedia', '2020-01-01 10:55:21', '2020-01-01 10:55:21'),
 	(5, 'users', '2020-01-01 10:55:21', '2020-01-01 10:55:21'),
-	(6, 'tables', '2020-01-08 12:16:50', '2020-01-08 12:16:51');
+	(6, 'tables', '2020-01-08 12:16:50', '2020-01-08 12:16:51'),
+	(7, 'my-courses', '2020-01-21 09:37:27', '2020-01-21 09:37:27'),
+	(8, 'my-lessons', '2020-01-21 09:37:40', '2020-01-21 09:37:40');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
 -- Dumping structure for table itqan.role_user
@@ -297,7 +345,7 @@ CREATE TABLE IF NOT EXISTS `role_user` (
   CONSTRAINT `role_user_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table itqan.role_user: ~5 rows (approximately)
+-- Dumping data for table itqan.role_user: ~6 rows (approximately)
 /*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
 INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 	(2, 2),
@@ -305,7 +353,8 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 	(3, 4),
 	(4, 2),
 	(4, 3),
-	(1, 1);
+	(1, 1),
+	(5, 1);
 /*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
 
 -- Dumping structure for table itqan.suggestions
@@ -349,15 +398,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table itqan.users: ~4 rows (approximately)
+-- Dumping data for table itqan.users: ~5 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `is_admin`, `department`, `section`, `ad_group`, `ad_name`, `remember_token`, `created_at`, `updated_at`, `deleted_at`) VALUES
 	(1, 'حسن باعبدالله', 'adx272@rsadf.mil', '$2y$10$zoRS/FHZ6XzcMiq0IvzecO7JUEVgExd.iL2WioNVHbsFtyP8A3NAm', 1, 'التعليم', 'التعليم الإلكتروني', NULL, NULL, 'EvYaIISxiSCbg7Xsm1sUUzOYafzXhmViz09R3QLQ75GiSnDDpZFhiK6LukP5', '2019-12-29 07:44:37', '2020-01-08 08:57:03', NULL),
 	(2, 'محسن الحربي', 'adx001@rsadf.mil', '$2y$10$nn1CX//pQDlIk6efQToK3uzeL0uE3Xt6fHBC3ZlTJliX8wyLWj/0a', 0, 'التعليم', 'التعليم الإلكتروني', NULL, NULL, NULL, '2020-01-02 08:02:05', '2020-01-08 11:09:31', '2020-01-08 11:09:31'),
 	(3, 'عاصم هزازي', 'ado852@rsadf.mil', '$2y$10$AZx5IqxzlPXvAzf3fO8gyubUbnb4Wc9XlO/.fTITBx8rsPIysKH/i', 0, 'التعليم', 'التعليم الإلكتروني', NULL, NULL, NULL, '2020-01-08 10:39:29', '2020-01-08 11:09:23', '2020-01-08 11:09:23'),
-	(4, 'محسن الحربي', 'adx273@rsadf.mil', '$2y$10$YnfXahRarQUmVu5G/2Ni7OMWnNBQPq5V2daZVdtB5VLT8Yg/i5GbG', 0, 'التعليم', 'التعليم الإلكتروني', NULL, NULL, 'aUaDSjyH95O8vC6zNWuI6MuHEPhFJYH9QaMYea6WpdL1dsnwvSo95wuHdNuP', '2020-01-08 11:44:05', '2020-01-08 11:44:05', NULL);
+	(4, 'محسن الحربي', 'adx273@rsadf.mil', '$2y$10$YnfXahRarQUmVu5G/2Ni7OMWnNBQPq5V2daZVdtB5VLT8Yg/i5GbG', 0, 'التعليم', 'التعليم الإلكتروني', NULL, NULL, 'aUaDSjyH95O8vC6zNWuI6MuHEPhFJYH9QaMYea6WpdL1dsnwvSo95wuHdNuP', '2020-01-08 11:44:05', '2020-01-08 11:44:05', NULL),
+	(5, 'العقيد/ محمد بن مسفر العتيبي', 'ado001@rsadf.mil', '$2y$10$xqP.fW8OP5zzMKFZe7mw5uT1jWyj1/nvqu203vswUxLcVWIXG8srS', 0, 'التعليم', 'التعليم الإلكتروني', NULL, NULL, NULL, '2020-01-22 10:24:46', '2020-01-22 10:24:46', NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
