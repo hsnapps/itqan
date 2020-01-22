@@ -48,7 +48,7 @@
     </div>
     <div class="form-group">
         <label for="image">{{ __('admin.course.change-image') }}</label>
-        <input type="file" id="image" name="image" required>
+        <input type="file" id="image" name="image">
         <p class="help-block">{{ __('admin.course.image-help-block') }}</p>
     </div>
 

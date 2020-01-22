@@ -3,6 +3,7 @@
         <tr>
             <th>{{ __('admin.lesson-name') }}</th>
             <th>{{ __('admin.from-course') }}</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>

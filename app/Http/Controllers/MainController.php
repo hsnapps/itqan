@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Owenoj\LaravelGetId3\Facades\MediaInfo;
 use App\Lesson;
 use App\Instructor;
 use App\Category;
@@ -82,6 +81,8 @@ class MainController extends Controller
     public function viewMissionLevel(MissionLevel $missionLevel)
     {
         return view('mission-level', [
+            // 'courses' => Course::where('mission_level_id', $missionLevel->id)->orderBy('updated_at', 'desc')->paginate(6),
+            'courses' => Course::where('mission_level_id', $missionLevel->id)->orderBy('id')->paginate(6),
             'lev' => $missionLevel->id,
             'title' => $missionLevel->name,
         ]);

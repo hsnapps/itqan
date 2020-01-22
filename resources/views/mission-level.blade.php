@@ -1,7 +1,19 @@
 @extends('layouts.global')
 
-@section('content')
-@include('partials.page-header')
+@push('styles')
+    <style>
+        body{ min-height: 1200px; }
+    </style>
+@endpush
 
-@each('partials.course_card', \App\Course::where('mission_level_id', $lev)->orderBy('updated_at', 'desc')->get(), 'course', 'partials.no.courses')
+@section('content')
+    @include('partials.page-header', ['showBack' => false])
+    
+    <div class="row">
+        @each('partials.course_card', $courses, 'course', 'partials.no.courses')
+    </div>
+
+    <div class="row">
+        {{ $courses->links() }}
+    </div>
 @endsection

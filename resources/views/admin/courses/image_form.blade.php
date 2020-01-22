@@ -1,9 +1,12 @@
+@includeWhen($showAlert, 'admin.partials.image-alert', ['alert' => $alert])
+
 <form action="{{ route('admin.courses.update-image') }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}
     <input type="hidden" name="id" value="{{ $course->id }}">
 
     <div class="form-group">
-        <img src="{{ url('images/courses/'.$course->image) }}" class="img-responsive" alt="{{ __('admin.course.image') }}">
+        @includeWhen(isset($course->image), 'partials.image', ['src' => url('images/courses/'.$course->image), 'w' => 640])
+        @includeWhen(!isset($course->image), 'partials.image', ['src' => url('images/place-holder.jpg'), 'w' => 640])
     </div>
     <div class="form-group">
         <label for="image">{{ __('admin.course.change-image') }}</label>

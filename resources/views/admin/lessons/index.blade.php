@@ -24,7 +24,7 @@
 
 @section('content')
 @include('partials.validation')
-@include('admin.partials.header', ['route' => route('admin.courses.edit', ['course' => $lesson->course, 'tab' => 'lessons']), 'header' => $lesson->title, 'subHeader' => $lesson->course->name])
+@include('admin.partials.header', ['route' => route('admin.courses.edit', ['course' => $lesson->course, 'tabs' => 'lessons']), 'header' => $lesson->title, 'subHeader' => $lesson->course->name])
 
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist" id="lesson-tabs">
@@ -36,6 +36,7 @@
 
 <!-- Tab panes -->
 <div class="tab-content">
+    {{-- Info --}}
     <div role="tabpanel" class="tab-pane active" id="info">
         <form action="{{ route('admin.lessons.update') }}" method="post">
             {{ csrf_field() }}
@@ -47,15 +48,22 @@
             <button id="lesson-delete" class="btn btn-danger" style="float: left;" type="button">{{ __('admin.lesson.delete') }}</a>
         </form>
     </div>
+
+    {{-- Questions --}}
     <div role="tabpanel" class="tab-pane" id="questions">
         @include('admin.lessons.add_question')
         @each('admin.lessons._questions', $lesson->questions, 'question', 'partials.no.questions')
     </div>
+
+    {{-- Files --}}
     <div role="tabpanel" class="tab-pane" id="files">
         @include('admin.lessons.add_file')
         @each('admin.lessons._files', $lesson->files, 'file', 'partials.no.files')
     </div>
+
+    {{-- Multimendia --}}
     <div role="tabpanel" class="tab-pane" id="multimedia">
+        @includeWhen($showAlert, 'admin.partials.image-alert', ['alert' => $alert])
         <div class="row">
             <div class="col-lg-6">
                 @include('admin.lessons.image_form')
@@ -77,8 +85,6 @@
 <script src="{{ url('js/ckeditor/ckeditor.js') }}"></script>
 <script>
     CKEDITOR.replace('description', {language: 'ar'});
-</script>
-<script>
     var tab = $.urlParam('tab');
     if (tab) { $('#lesson-tabs a[href="#'+tab+'"]').tab('show'); }
 
@@ -117,5 +123,7 @@
         var f = $(this).data('file');
         $('#del_file_' + f).submit();
     });
+
+    $('.breadcrumb > li:nth-child(3) a').attr('href', "{{ route('admin.courses.edit', ['course' => $lesson->course, 'tabs' => 'lessons']) }}");
 </script>
 @endpush

@@ -16,10 +16,7 @@
 
     <div class="container" id="#wrapper">
         <div class="jumbotron text-center">
-            <h1>{{ __('app.ie-not-allowed') }}</h1>
-            <div class="well">
-                <p>{{ __('app.use-chrom') }}<i class="fa fa-chrome text-danger" aria-hidden="true"></i>{{ __('app.use-firefox') }} <i class="fa fa-firefox text-danger" aria-hidden="true"></i>{{ __('app.use-safari') }}<i class="fa fa-safari text-primary" aria-hidden="true"></i></p>
-            </div>
+            <h1>{{ __('app.old-version') }}</h1>
         </div>
     </div>
 

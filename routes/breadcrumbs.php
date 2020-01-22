@@ -21,7 +21,7 @@ Breadcrumbs::register('admin.courses.new', function ($breadcrumbs) {
 Breadcrumbs::register('admin.courses.edit', function ($breadcrumbs) {
     $course = Route::current()->parameter('course');
     $breadcrumbs->parent('admin.courses');
-    $breadcrumbs->push(__('admin.course.edit'), route('admin.courses.edit', $course));
+    $breadcrumbs->push(__('admin.course.edit'), route('admin.courses.edit', [ 'course' => $course]));
 });
 // -------------------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ Breadcrumbs::register('admin.courses.edit', function ($breadcrumbs) {
 Breadcrumbs::register('admin.courses.lessons', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.courses.edit');
     $course = Route::current()->parameter('course');
-    $breadcrumbs->push(__('admin.lessons'), route('admin.courses.lessons', $course));
+    $breadcrumbs->push(__('admin.lessons'), route('admin.courses.lessons', [ 'course' => $course]));
 });
 
 // Dashboard \ Lessons All
@@ -42,14 +42,14 @@ Breadcrumbs::register('admin.lessons.all', function ($breadcrumbs) {
 Breadcrumbs::register('admin.lessons.new', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.courses.edit');
     $course = Route::current()->parameter('course');
-    $breadcrumbs->push(__('admin.lesson.new'), route('admin.lessons.new', $course));
+    $breadcrumbs->push(__('admin.lesson.new'), route('admin.lessons.new', [ 'course' => $course]));
 });
 
 // Dashboard \ Lessons \ Edit
 Breadcrumbs::register('admin.lessons.edit', function ($breadcrumbs) {
-    $breadcrumbs->parent('admin.courses.edit');
     $lesson = Route::current()->parameter('lesson');
-    $breadcrumbs->push(__('admin.lesson.edit'), route('admin.lessons.edit', $lesson));
+    $breadcrumbs->parent('admin.courses.edit', ['course' => $lesson->course->id, 'tabs' => 'lessons']);
+    $breadcrumbs->push(__('admin.lesson.edit'), route('admin.lessons.edit', ['lesson' => $lesson]));
 });
 // -------------------------------------------------------------------------------------
 

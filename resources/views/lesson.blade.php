@@ -17,6 +17,7 @@
         <!-- Video -->
         <div data-show="0">
             @includeWhen(isset($lesson->video), 'partials.video')
+            @includeWhen(!isset($lesson->video), 'partials.no.video')
         </div>
 
         <!-- Files / References -->
@@ -28,7 +29,8 @@
 
         <!-- Quiz -->
         <div data-show="2">
-            @include('partials.quiz')
+            @includeWhen($lesson->questions->count() > 0, 'partials.quiz')
+            @includeWhen($lesson->questions->count() == 0, 'partials.no.quiz')
         </div>
 
         <!-- Suggestions -->
@@ -196,7 +198,10 @@ function displaySection(tab) {
 
     $('[data-section="' + tab + '"]').removeClass('btn-default').addClass('btn-primary');
     $('[data-show="' + tab + '"]').show();
-    $('#lesson_video').get(0).pause();
+
+    if ($('#lesson_video').length) {
+        $('#lesson_video').get(0).pause();
+    }
     // document.location.search = '#section=' + tab;
     window.history.pushState(null, document.title, '?section=' + tab);
 }

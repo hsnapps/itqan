@@ -17,7 +17,7 @@
             <!-- Default panel contents -->
             <div class="panel-heading text-center kufi">{{ __('admin.courses_count') }}</div>
             <div class="panel-body">
-                <p class="text-center text-large text-primary">{{ hindi(count(\App\Course::all())) }}</p>
+                <p class="text-center text-large text-primary"><a href="{{ route('admin.courses') }}">{{ hindi(count(\App\Course::all())) }}</a></p>
             </div>
             <div class="panel-footer text-center">
                 <a class="btn btn-primary" href="{{ route('admin.courses') }}"><i class="fa fa-link" aria-hidden="true"></i></a>
@@ -29,7 +29,7 @@
             <!-- Default panel contents -->
             <div class="panel-heading text-center kufi">{{ __('admin.lessons_count') }}</div>
             <div class="panel-body">
-                <p class="text-center text-large text-primary">{{ hindi(count(\App\Lesson::all())) }}</p>
+                <p class="text-center text-large text-primary"><a href="{{ route('admin.lessons.all') }}">{{ hindi(count(\App\Lesson::all())) }}</a></p>
             </div>
             <div class="panel-footer text-center">
                 <a class="btn btn-primary" href="{{ route('admin.lessons.all') }}"><i class="fa fa-link" aria-hidden="true"></i></a>
@@ -41,7 +41,7 @@
             <!-- Default panel contents -->
             <div class="panel-heading text-center kufi">{{ __('admin.multimedia_count') }}</div>
             <div class="panel-body">
-                <p class="text-center text-large text-primary">{{ hindi(count(\App\MultimediaFile::all())) }}</p>
+                <p class="text-center text-large text-primary"><a href="{{ route('admin.multimedia') }}">{{ hindi(count(\App\MultimediaFile::all())) }}</a></p>
             </div>
             <div class="panel-footer text-center">
                 <a class="btn btn-primary" href="{{ route('admin.multimedia') }}"><i class="fa fa-link" aria-hidden="true"></i></a>
@@ -53,7 +53,7 @@
             <!-- Default panel contents -->
             <div class="panel-heading text-center kufi">{{ __('admin.users_count') }}</div>
             <div class="panel-body">
-                <p class="text-center text-large text-primary">{{ hindi(count(\App\User::all())) }}</p>
+                <p class="text-center text-large text-primary"><a href="{{ route('admin.users') }}">{{ hindi(count(\App\User::all())) }}</a></p>
             </div>
             <div class="panel-footer text-center">
                 <a class="btn btn-primary" href="{{ route('admin.users') }}"><i class="fa fa-link" aria-hidden="true"></i></a>

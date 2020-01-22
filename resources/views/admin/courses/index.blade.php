@@ -2,7 +2,7 @@
 
 @push('styles')
     <style>
-        body{ min-height: 1200px; }
+        body{ min-height: 1250px; }
         .breadcrumb>li+li:last-of-type:before {content: none;}
     </style>
 @endpush
@@ -39,11 +39,7 @@
 
     <div class="row">
         <div class="text-center">
-            @if (isset($filter))
             {{ $courses->links('partials.pagination.bootstrap-4') }}
-            @else
-            {{ $courses->links('partials.pagination.bootstrap-4') }}
-            @endif
         </div>
     </div>    
 @endsection

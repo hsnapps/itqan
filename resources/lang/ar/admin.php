@@ -20,6 +20,7 @@ return [
     'from-course' => 'من دورة',
     'add' => 'إضافة',
     'tables' => 'إدارة الجداول',
+    'image-alaert' => 'أبعاد الصورة الحالية :width x :height, يفضل أن تكون أبعاد الصورة :defaultWidth x :defaultHeight حتى تظهر بالشكل المناسب',
 
     'course' => [
         'new' => 'إضافة دورة',
@@ -36,7 +37,7 @@ return [
         'delete_question' => 'هل تريد حذف الدورة ":name"',
         'delete_confirmation' => 'تم حذف الدورة ":name" بنجاح',
         'change-image' => 'تغيير أو إضافة الصورة',
-        'image-help-block' => hindi('الملفات المقبولة jpg, jpeg, png على ألا يتجاوز حجم الملف 2 ميغابايت وتكون أبعاد الصورة 640×300'),
+        'image-help-block' => hindi('الملفات المقبولة jpg, jpeg, png على ألا يتجاوز حجم الملف 2 ميغابايت وتكون أبعاد الصورة 640×360'),
         'remove-image' => 'إزالة صورة الدورة',
         'add-lesson' => 'إضافة درس',
         'remove-image-confirm' => 'هل تريد إزالة صورة هذه الدورة؟',
@@ -139,5 +140,7 @@ return [
         'multimedia' => 'صلاحيات ملفات الوسائط',
         'users' => 'صلاحيات إدارة المستخدمين',
         'tables' => 'إدارة الجداول',
+        'my-courses' => 'الدورات الخاصة بي فقط',
+        'my-lessons' => 'الدروس الخاصة بي فقط',
     ],
 ];

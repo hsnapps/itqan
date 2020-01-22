@@ -5,27 +5,41 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Owenoj\LaravelGetId3\Facades\MediaInfo;
 use App\Course;
 
 class CoursesController extends Controller
 {
-    // public function index($filter = null)
-    // {
-    //     if (isset($filter)) {
-    //         dd($filter);
-    //     }
-
-    //     $courses = Course::paginate(6);
-    //     return view('admin.courses.index', [
-    //         'courses' => $courses
-    //     ]);
-    // }
-
     public function viewCourse(Course $course)
     {
+        $showAlert = false;
+        $alert = '';
+
+        if ($course->image) {
+            $path = Storage::disk('app-images')->path('courses/'.$course->image);
+            // $imageInfo = MediaInfo::extract($path);
+            $imageInfo = getimagesize($path);
+            $width = $imageInfo[0];
+            $height = $imageInfo[1];
+            $defaultWidth = (int)env('IMAGE_WIDTH', 640);
+            $defaultHeight = (int)env('IMAGE_HEIGHT', 360);
+            
+            if ($width != $defaultWidth || $height != $defaultHeight) {
+                $showAlert = true;
+                $alert = __('admin.image-alaert', [
+                    'width' => $width,
+                    'height' => $height,
+                    'defaultWidth' => $defaultWidth,
+                    'defaultHeight' => $defaultHeight,
+                ]);
+            }
+        }
+
         return view('admin.courses.edit', [
             'course' => $course,
-            'title' => $course->name
+            'title' => $course->name,
+            'showAlert' => $showAlert,
+            'alert' => $alert,
         ]);
     }
 
@@ -54,6 +68,7 @@ class CoursesController extends Controller
             return back()->with('error', __('admin.error'));
         }
 
+        // dd(isset($request->image));
         if (isset($request->image)) {
             $request->validate([
                 'image' => 'file|image|mimes:jpeg,jpg,png|max:2097152',
@@ -69,7 +84,7 @@ class CoursesController extends Controller
             $course->image = $fileName;
         }
 
-        if($path && $course->save()) {
+        if($course->save()) {
             return redirect()
             ->route('admin.courses.edit', ['course' => $course])
             ->with('success', __('admin.course.saved'));

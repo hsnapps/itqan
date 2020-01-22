@@ -16,6 +16,7 @@ class LessonsController extends Controller
 {
     public function newLesson(\App\Course $course)
     {
+        // dd($course->missionLevel->id == 1);
         return view('admin.lessons.new', [
             'course' => $course,
             'title' => $course->name,
@@ -24,9 +25,34 @@ class LessonsController extends Controller
 
     public function viewLesson(Lesson $lesson) 
     {
-        // dd($lesson->toArray());
+        $showAlert = false;
+        $alert = '';
+
+        if ($lesson->image) {
+            $path = Storage::disk('app-images')->path('lessons/'.$lesson->image);
+            // $imageInfo = MediaInfo::extract($path);
+            $imageInfo = getimagesize($path);
+            $width = $imageInfo[0];
+            $height = $imageInfo[1];
+            $defaultWidth = (int)env('IMAGE_WIDTH', 640);
+            $defaultHeight = (int)env('IMAGE_HEIGHT', 360);
+            
+            if ($width != $defaultWidth || $height != $defaultHeight) {
+                $showAlert = true;
+                $alert = __('admin.image-alaert', [
+                    'width' => $width,
+                    'height' => $height,
+                    'defaultWidth' => $defaultWidth,
+                    'defaultHeight' => $defaultHeight,
+                ]);
+            }
+        }
+
         return view('admin.lessons.index', [
-            'lesson' => $lesson
+            'lesson' => $lesson,
+            'course' => $lesson->course,
+            'showAlert' => $showAlert,
+            'alert' => $alert,
         ]);
     }
 
@@ -43,6 +69,8 @@ class LessonsController extends Controller
             'level' => 'required',
             'description' => 'max:1000',
         ]);
+
+        // dd($request->all());
 
         $lesson = Lesson::create([
             'course_id' => $course->id,
@@ -67,15 +95,14 @@ class LessonsController extends Controller
                 return back()->with('error', __('admin.error'));
             }
 
-            $uploadedFile = $request->image;
             $extension = $request->image->extension();
             $fileName = str_random(20 - 1 - strlen($extension)).".$extension";
-            $path = $request->image->storeAs('lessons', $fileName, 'app-images');
+            $request->image->storeAs('lessons', $fileName, 'app-images');
             $lesson->image = $fileName;
         } else {
-            $placeHolder = 'place-holder.png';
-            $fileName = str_random(16).'.png';
-            $copy = Storage::disk('app-images')->copy($placeHolder, 'lessons/'.$fileName);
+            $placeHolder = 'place-holder.jpg';
+            $fileName = str_random(16).'.jpg';
+            Storage::disk('app-images')->copy($placeHolder, 'lessons/'.$fileName);
             $lesson->image = $fileName;
         }
 
@@ -87,13 +114,12 @@ class LessonsController extends Controller
                 return back()->with('error', __('admin.error'));
             }
 
-            $uploadedFile = $request->video;
             $fileName = str_random(20 - 1 - strlen($extension)).".mp4";
-            $path = $request->video->storeAs('', $fileName, 'app-videos');
+            $request->video->storeAs('', $fileName, 'app-videos');
             $lesson->video = $fileName;
         }
 
-        if($path && $lesson->save()) {
+        if($lesson->save()) {
             return redirect()
             ->route('admin.courses.edit', ['course' => $course, 'tabs' => 'lessons'])
             ->with('success', __('admin.course.saved'));

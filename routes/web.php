@@ -3,12 +3,12 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-Route::view('/', 'index')->name('index');
-Route::view('/about', 'about', ['title' => __('app.about-title')])->name('about');
-Route::view('/ie-not-allowed', 'ie-not-allowed')->name('ie-not-allowed');
-Route::get('/get-param/{param?}', function ($param) {
-    // $course = Route::current()->parameter('course');
-    dd(request()->route()->parameter('param'));
+Route::group(['middleware' => ['check-agent']], function () {
+    Route::view('/', 'index', ['courses' => App\Course::where('mission_level_id', 1)->orderBy('id')->paginate(6)])->name('index');
+    Route::view('/about', 'about', ['title' => __('app.about-title')])->name('about');
+    Route::get('/get-param/{param?}', function ($param) {
+        dd(request()->route()->parameter('param'));
+    });
 });
 
 Route::get('/course/{course}', 'MainController@viewCourse')->name('course');
@@ -41,7 +41,7 @@ Route::group(['middleware' => ['auth', 'check-roles']], function () {
         });
         
         Route::group(['prefix' => 'lessons'], function () {
-            Route::view('/all', 'admin.lessons.all')->name('admin.lessons.all');
+            Route::view('/all', 'admin.lessons.all', ['lessons' => App\Lesson::paginate(5)])->name('admin.lessons.all');
             Route::get('/new/{course}', 'Admin\LessonsController@newLesson')->name('admin.lessons.new');
             Route::get('/{lesson}', 'Admin\LessonsController@viewLesson')->name('admin.lessons.edit');
             Route::post('/add', 'Admin\LessonsController@addLesson')->name('admin.lessons.add');
@@ -112,3 +112,8 @@ Route::group(['middleware' => ['auth', 'check-roles']], function () {
         })->name('add-button');
     });
 });
+
+
+
+Route::view('/ie-not-allowed', 'ie-not-allowed')->name('ie-not-allowed');
+Route::view('/old-version', 'old-version')->name('old-version');

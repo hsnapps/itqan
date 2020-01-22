@@ -1,0 +1,1 @@
+<img src="{{ $src }}" alt="place-holder" width="{{ isset($w) ? $w : env('IMAGE_WIDTH') }}" height="{{ isset($w) ? $w / 1.777777777777778 : env('IMAGE_HEIGHT') }}"/>

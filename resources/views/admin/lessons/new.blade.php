@@ -21,7 +21,7 @@
 @section('content')
 @include('partials.validation')
 
-@include('admin.partials.header', ['route' => route('admin.courses.edit', ['course' => $course, 'tab' => 'lessons']), 'header' => $course->name, 'subHeader' => $course->category->name])
+@include('admin.partials.header', ['route' => route('admin.courses.edit', ['course' => $course, 'tabs' => 'lessons']), 'header' => $course->name, 'subHeader' => $course->category->name])
 
 <form action="{{ route('admin.lessons.add') }}" method="post" enctype="multipart/form-data">
     {{ csrf_field() }}

@@ -2,7 +2,7 @@
 
 @push('styles')
 <style>
-    body{ height: 1250px; }
+    body{ height: {{ 900 +  (70 * $course->lessons->count()) }}px; }
     .tab-pane {
         padding: 15px;
         font-size: 1.25em;
@@ -34,9 +34,12 @@
 
 <!-- Tab panes -->
 <div class="tab-content">
+    <!-- Course Info -->
     <div role="tabpanel" class="tab-pane active" id="info">
         @include('admin.courses.course_form', ['route' => route('admin.courses.update')])
     </div>
+
+    <!-- Lessons List -->
     <div role="tabpanel" class="tab-pane" id="lessons">
         <a href="{{ route('admin.lessons.new', ['course' => $course]) }}" class="btn btn-primary kufi" style="font-size: 1.25em; margin-bottom: 10px;">
             <i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;{{ __('admin.course.add-lesson') }}
@@ -45,6 +48,8 @@
             @each('admin.courses._lessons', $course->lessons->sortBy('lesson_index'), 'lesson', 'partials.no.lessons')
         </ul>
     </div>
+
+    <!-- Course Image -->
     <div role="tabpanel" class="tab-pane" id="image">
         @include('admin.courses.image_form')
     </div>
@@ -60,12 +65,14 @@
         }
     });
 
-    var tab = $.urlParam('tab');
-    if (tab) { $('#course-tabs a[href="#'+tab+'"]').tab('show'); }
+    var tab = $.urlParam('tabs');
+    if (tab) {
+        $('#course-tabs a[href="#'+tab+'"]').tab('show');
+    }
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         var tab = $(e.target).attr('aria-controls');
-        window.history.pushState(null, document.title, '?tab=' + tab);
+        window.history.pushState(null, document.title, '?tabs=' + tab);
     });
 </script>
 @endpush

@@ -3,7 +3,8 @@
     <input type="hidden" name="id" value="{{ $lesson->id }}">
 
     <div class="form-group">
-        <img src="{{ url('images/lessons/'.$lesson->image) }}" class="img-responsive" alt="{{ __('admin.lessons.image') }}">
+        @includeWhen(isset($lesson->image), 'partials.image', ['src' => url('images/lessons/'.$lesson->image), 'w' => 540])
+        @includeWhen(!isset($lesson->image), 'partials.image', ['src' => url('images/place-holder.jpg'), 'w' => 540])
     </div>
     <div class="form-group">
         <label for="image">{{ __('admin.lesson.change-image') }}</label>

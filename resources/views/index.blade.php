@@ -2,12 +2,22 @@
 
 @push('styles')
     <style>
-        body { height: 1050px; }
+        body { height: 1100px; }
     </style>
 @endpush
 
 @section('content')
-    @each('partials.course_card', App\Course::where('mission_level_id', '!=', 2)->orderBy('updated_at', 'desc')->get(), 'course', 'partials.no.courses')
+    @include('partials.page-header', ['showBack' => false, 'title' => __('app.our-courses')])
+
+    <div class="row">
+        @each('partials.course_card', $courses, 'course', 'partials.no.courses')
+    </div>
+
+    <div class="row">
+        <div class="text-center">
+            {{ $courses->links('partials.pagination.bootstrap-4') }}
+        </div>
+    </div>
 @endsection
 
 @push('scripts')

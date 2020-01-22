@@ -1,0 +1,1 @@
+<h2 class="text-center">{{ __('app.no.questions') }}</h2>

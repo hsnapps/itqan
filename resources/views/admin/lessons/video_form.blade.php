@@ -3,11 +3,8 @@
     <input type="hidden" name="id" value="{{ $lesson->id }}">
 
     <div class="form-group">
-        @if (isset($lesson->video))
-            @include('partials.video')
-        @else
-        <img src="{{ url('images/video-place-holder.png') }}" class="img-responsive" alt="{{ __('admin.lessons.image') }}">
-        @endif
+        @includeWhen(isset($lesson->video), 'partials.video')
+        @includeWhen(!isset($lesson->video), 'partials.image', ['src' => url('images/video-place-holder.png'), 'w' => 540, 'h' => 303.75])
     </div>
     <div class="form-group">
         <label for="video">{{ __('admin.lesson.change-video') }}</label>
