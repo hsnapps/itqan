@@ -22,5 +22,5 @@
     </div>
 
     <br />
-    @include('admin.partials.submit', ['can' => auth()->user()->canCourses(), 'route' => route('admin.courses')])
+    @include('admin.partials.submit', ['can' => true, 'route' => route('admin.courses')])
 </form>

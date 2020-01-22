@@ -54,10 +54,14 @@
 
 @push('scripts')
 <script>
-    changeCheckboxes();
-
-    $('#admin').click(function(){
-        changeCheckboxes();
+    $(':checkbox').click(function(){
+        if ($(this).attr('id') == 'admin') {
+            changeCheckboxes();
+        } else if ($(this).attr('id') == 'my-lessons') {
+            $(':checkbox[id!="my-lessons"]').prop('checked', false);
+        } else {
+            $('#my-lessons').prop('checked', false);
+        }
     });
 
     function changeCheckboxes() {
@@ -65,7 +69,13 @@
         $(':checkbox').each(function(){
             if ($(this).attr('id') !== 'admin') {
                 $(this).prop('disabled', adminChecked);
-                if(adminChecked) $(this).prop('checked', adminChecked);
+                if(adminChecked) {
+                    $(this).prop('checked', adminChecked);
+                } else {
+                    $(':checkbox[id!="my-lessons"]').prop('checked', true);
+                    $('#my-lessons').prop('checked', false);
+                }
+                
             }
         });
     }

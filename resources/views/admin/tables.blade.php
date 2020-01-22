@@ -58,11 +58,11 @@
                     <td scope="row">{{ hindi($loop->index + 1) }}</td>
                     <td>
                         <form action="{{ route('admin.tables.update') }}" method="post">
-                            <input type="text" name="name" id="name_{{ sprintf('%s_%s', $key, $item->id) }}" value="{{ $item->name }}" style="width: 400px !important;">
+                            <input type="text" name="name" id="name_{{ sprintf('%s_%s', $key, $item->id) }}"  @if($item->reserved) {{ 'disabled' }} @endif value="{{ $item->name }}" style="width: 400px !important;">
                     
                             <div class="btn-group btn-group-sm" role="group" aria-label="commands">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-                                <button type="button" class="btn btn-danger" data-name="{{ $item->name }}" data-table="{{ $key }}" data-id="{{ $item->id }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                                <button type="submit" class="btn btn-primary" @if($item->reserved) {{ 'disabled' }} @endif><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-danger @if($item->reserved) {{ 'disabled' }} @endif" data-name="{{ $item->name }}" data-table="{{ $key }}" data-id="{{ $item->id }}"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                             </div>
 
                             {{ csrf_field() }}

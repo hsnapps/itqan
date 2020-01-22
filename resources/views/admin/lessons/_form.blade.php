@@ -13,7 +13,7 @@
 <!-- instructor -->
 <div class="form-group">
     <label for="instructor">{{ __('admin.lesson.instructor') }}</label>
-    <select class="form-control" name="instructor" id="instructor" style="font-size: 1.15em;">
+    <select class="form-control" name="instructor" id="instructor" style="font-size: 1.15em;" {{ $selectInstructor ? '' : 'disabled' }}>
         @foreach (App\Instructor::all() as $instructor)
             @if(isset($lesson))
             <option {{ $lesson->instructor_id == $instructor->id ? 'selected' : '' }}  value="{{ $instructor->id }}">{{ $instructor->name }}</option>

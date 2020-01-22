@@ -30,7 +30,7 @@
     @include('admin.lessons._form')
 
     <br />
-    @include('admin.partials.submit', ['can' => auth()->user()->canLessons(), 'route' => route('admin.courses.edit', ['course' => $course, 'tab' => 'lessons'])])
+    @include('admin.partials.submit', ['can' => true, 'route' => route('admin.courses.edit', ['course' => $course, 'tab' => 'lessons'])])
 </form>
 @endsection
 
