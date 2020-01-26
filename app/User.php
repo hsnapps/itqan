@@ -17,6 +17,7 @@ class User extends Authenticatable
         'password',
         'department',
         'section',
+        // 'is_admin',
     ];
 
     protected $hidden = [
@@ -27,10 +28,12 @@ class User extends Authenticatable
         // 'is_admin' => 'boolean',
     ];
 
-    public function isAdmin()
-    {
-        return $this->roles()->findMany([1])->count() != 0;
-    }
+    protected $dates = ['deleted_at'];
+
+    // public function isAdmin()
+    // {
+    //     return $this->roles()->findMany([1])->count() != 0;
+    // }
 
     public function canCourses()
     {

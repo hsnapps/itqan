@@ -59,5 +59,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'check-roles' => \App\Http\Middleware\CheckRules::class,
         'check-agent' => \App\Http\Middleware\CheckAgent::class,
+        'only-admin' => \App\Http\Middleware\OnlyAdmin::class,
     ];
 }

@@ -27,7 +27,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (App\User::all() as $user)
+        @foreach ($users as $user)
         <tr>
             <td scope="row">{{ hindi($loop->index + 1) }}</td>
             <td><a href="{{ route('admin.users.edit', ['user' => $user]) }}">{{ $user->name }}</a></td>
@@ -52,6 +52,10 @@
         @endforeach
     </tbody>
 </table>
+
+<div class="text-center">
+    {{ $users->links('partials.pagination.bootstrap-4') }}
+</div>
 @endsection
 
 @push('scripts')

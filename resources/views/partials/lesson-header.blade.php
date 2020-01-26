@@ -8,14 +8,13 @@
                 <br>
                 <span class="auto-style2">
                     {{ $lesson->header }}<br>
-                    <a href="{{ route('instructor', ['instructor' => $lesson->instructor]) }}"><i class="fa fa-link"
-                            aria-hidden="true"></i>&nbsp;{{ __('lesson.with', ['ins' => $lesson->instructor->name]) }}</a>
+                    <a href="{{ route('instructor', ['instructor' => $lesson->instructor]) }}"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;{{ __('lesson.with', ['ins' => $lesson->instructor->name]) }}</a>
 
-                    <a href="{{ route('category', ['category' => $lesson->category]) }}"><i class="fa fa-link"
-                            aria-hidden="true"></i>&nbsp;{{ __('lesson.category', ['cat' => $lesson->category->name]) }}</a>
+                    <a href="{{ route('category', ['category' => $lesson->category]) }}"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;{{ __('lesson.category', ['cat' => $lesson->category->name]) }}</a>
 
-                    <a href="{{ route('level', ['level' => $lesson->level]) }}"><i class="fa fa-link"
-                            aria-hidden="true"></i>&nbsp;{{ __('lesson.level', ['lev' => $lesson->level->name]) }}</a>
+                    @if ($lesson->level)
+                    <a href="{{ route('level', ['level' => $lesson->level]) }}"><i class="fa fa-link" aria-hidden="true"></i>&nbsp;{{ __('lesson.level', ['lev' => $lesson->level->name]) }}</a>
+                    @endif
                 </span>
             </h2>
         </div>

@@ -16,6 +16,8 @@ class LessonFile extends Model
         'file_name',
     ];
 
+    protected $dates = ['deleted_at'];
+
     public function lesson()
     {
         return $this->belongsTo(Lesson::class);

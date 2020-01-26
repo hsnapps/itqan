@@ -22,6 +22,8 @@ class Lesson extends Model
         'course_id'
     ];
 
+    protected $dates = ['deleted_at'];
+
     public function instructor()
     {
         return $this->belongsTo(Instructor::class);

@@ -104,3 +104,15 @@ Breadcrumbs::register('admin.tables', function ($breadcrumbs) {
     $breadcrumbs->push(__('admin.tables'), route('admin.tables'));
 });
 // -------------------------------------------------------------------------------------
+
+// Dashboard \ Suggestions
+Breadcrumbs::register('admin.suggestions', function ($breadcrumbs) {
+    $breadcrumbs->parent('dashboard');
+    $breadcrumbs->push(__('admin.suggestions.nav'), route('admin.suggestions'));
+});
+
+// Dashboard \ Suggestions - ALL
+Breadcrumbs::register('admin.suggestions.all', function ($breadcrumbs) {
+    $breadcrumbs->parent('dashboard');
+    $breadcrumbs->push(__('admin.suggestions.nav'), route('admin.suggestions.all'));
+});

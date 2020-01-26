@@ -7,6 +7,15 @@ use Closure;
 class CheckAgent
 {
     /**
+     * The names of the cookies that should not be encrypted.
+     *
+     * @var array
+     */
+    protected $except = [
+        //
+    ];
+    
+    /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request

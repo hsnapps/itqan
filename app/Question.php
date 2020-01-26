@@ -20,6 +20,8 @@ class Question extends Model
         'question_index',
     ];
 
+    protected $dates = ['deleted_at'];
+
     public function lesson()
     {
         return $this->belongsTo(Lesson::class);

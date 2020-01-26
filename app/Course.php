@@ -17,6 +17,8 @@ class Course extends Model
         'mission_level_id',
     ];
 
+    protected $dates = ['deleted_at'];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

@@ -18,6 +18,8 @@ class Instructor extends Model
         'info' => 'array'
     ];
 
+    protected $dates = ['deleted_at'];
+
     public function lessons()
     {
         return $this->hasMany(Lesson::class);

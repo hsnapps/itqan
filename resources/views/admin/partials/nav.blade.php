@@ -27,7 +27,11 @@
         <a href="{{ route('admin.profile') }}">{{ __('admin.user.profile') }}</a>
     </li>
 
-    <li style="float: left;">
+    <li class="{{ str_contains(Route::currentRouteName(), 'suggestions') ? 'active' : '' }}">
+        <a href="{{ route('admin.suggestions') }}">{{ __('admin.suggestions.nav') }}</a>
+    </li>
+
+    <li class="pull-left">
         <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-unlock" aria-hidden="true"></i></i> {{ __('admin.logout') }}</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> {{ csrf_field() }} </form>
     </li>

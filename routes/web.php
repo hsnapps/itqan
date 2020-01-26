@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth', 'check-roles']], function () {
         });
 
         Route::group(['prefix' => 'users'], function () {
-            Route::view('/', 'admin.users.index', ['users' => App\Course::all()])->name('admin.users');
+            Route::view('/', 'admin.users.index', ['users' => App\User::paginate(20)])->name('admin.users');
             Route::view('/new', 'admin.users.new')->name('admin.users.new');
             Route::get('/{user}', 'Admin\UsersController@viewUser')->name('admin.users.edit');
             Route::post('/add', 'Admin\UsersController@addUser')->name('admin.users.add');
@@ -82,6 +82,15 @@ Route::group(['middleware' => ['auth', 'check-roles']], function () {
             Route::post('/delete', 'Admin\UsersController@deleteUser')->name('admin.users.delete');
 
             Route::post('/change-password', 'Admin\UsersController@changePassword')->name('admin.users.change_password');
+        });
+
+        Route::group(['middleware' => 'only-admin', 'prefix' => 'suggestions'], function () {
+            Route::view('/', 'admin.suggestions.index', ['suggestions' => App\Suggestion::paginate(20)])->name('admin.suggestions');
+            Route::view('/all', 'admin.suggestions.index', ['suggestions' => App\Suggestion::withTrashed()->paginate(20)])->name('admin.suggestions.all');
+            Route::post('/delete', 'Admin\SuggestionController@delete')->name('admin.suggestions.delete');
+            Route::post('/mark-read', 'Admin\SuggestionController@markRead')->name('admin.suggestions.mark-read');
+            Route::post('/mark-not-read', 'Admin\SuggestionController@markNotRead')->name('admin.suggestions.mark-not-read');
+            Route::post('/add-note', 'Admin\SuggestionController@addNote')->name('admin.suggestions.add-note');
         });
 
         Route::view('/profile', 'admin.users.profile')->name('admin.profile');
